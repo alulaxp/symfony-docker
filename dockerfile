@@ -13,8 +13,6 @@ RUN apk update \
     make \
     autoconf \
     && docker-php-source extract \
-    && pecl install xdebug \
-    && docker-php-ext-enable xdebug \
     && docker-php-source delete \
     #&& docker-php-ext-install pdo_mysql soap intl zip \             //ACA VA POSTGRES
     && echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini \
