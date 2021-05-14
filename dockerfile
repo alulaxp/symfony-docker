@@ -17,7 +17,7 @@ RUN apk update \
     #&& docker-php-ext-install pdo_mysql soap intl zip \             //ACA VA POSTGRES
     && echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-    && rm -rf /tmp/*
+   
     && composer global require "phpunit/phpunit"
 
 ENV PATH /root/.composer/vendor/bin:$PATH
