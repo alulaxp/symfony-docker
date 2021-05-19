@@ -11,24 +11,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class LibraryController extends AbstractController 
 {
 
-    private $logger;
-
-    public function __construct(LoggerInterface $logger)
-    {
-        $this->logger = $logger;
-
-    }
-
 
     /**
      * 
      * @Route("library/list", name="library_list")
      */
 
-     public function list(Request $request) {
+     public function list(Request $request, LoggerInterface $logger) {
 
         $title = $request->get('title', 'default');
-        $this->logger->info('List action called');
+        $logger->info('List action called 2');
          $response = new JsonResponse();
          $response->setData([
              'success' => true,
